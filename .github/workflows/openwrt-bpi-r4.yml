@@ -39,8 +39,8 @@ jobs:
 
     - name: Copy 8GB BL2/FIP files to OpenWrt
       run: |
-        cp files/bpi-r4_sdmmc_8GB_bl2.img openwrt/
-        cp files/bpi-r4_sdmmc_8GB_fip.bin openwrt/
+        cp bpi-r4_sdmmc_8GB_bl2.img openwrt/
+        cp bpi-r4_sdmmc_8GB_fip.bin openwrt/
 
     - name: Setup OpenWrt feeds
       working-directory: openwrt
