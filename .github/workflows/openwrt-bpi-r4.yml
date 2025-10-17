@@ -1,6 +1,17 @@
 name: Build OpenWrt for Banana Pi R4
 
 on:
+  push:
+    branches: [ main ]
+    paths:
+      - '**.yml'
+      - '**.config'
+      - '**.img'
+      - '**.bin'
+      - 'Makefile.local'
+      - 'feeds.conf.default'
+  pull_request:
+    branches: [ main ]
   workflow_dispatch:
     inputs:
       kernel_version:
