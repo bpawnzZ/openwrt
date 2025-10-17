@@ -1,0 +1,14 @@
+# Custom BL2/FIP files for Banana Pi R4 8GB RAM
+
+# Copy 8GB BL2/FIP files to staging directory
+$(STAGING_DIR_IMAGE)/bpi-r4_sdmmc_8GB_bl2.img: bpi-r4_sdmmc_8GB_bl2.img
+	$(CP) $< $@
+
+$(STAGING_DIR_IMAGE)/bpi-r4_sdmmc_8GB_fip.bin: bpi-r4_sdmmc_8GB_fip.bin
+	$(CP) $< $@
+
+# Override default BL2/FIP files for Banana Pi R4
+ifeq ($(CONFIG_TARGET_mediatek_filogic_DEVICE_bananapi_bpi-r4),y)
+  BL2_FILE := $(STAGING_DIR_IMAGE)/bpi-r4_sdmmc_8GB_bl2.img
+  FIP_FILE := $(STAGING_DIR_IMAGE)/bpi-r4_sdmmc_8GB_fip.bin
+endif
