@@ -62,11 +62,18 @@ jobs:
         path: bin/targets/mediatek/filogic/*
         retention-days: 7
 
-    - name: Upload to Google Drive (optional)
-      if: ${{ false }}
-      uses: adityak74/google-drive-upload-git-action@main
+    - name: Create GitHub Release
+      uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
       with:
-        credentials: ${{ secrets.CREDENTIALS }}
-        filename: "bin/targets/mediatek/filogic/*.bin"
-        folderId: ${{ secrets.FOLDERID }}
-        overwrite: "true"
+        files: bin/targets/mediatek/filogic/*.bin
+        generate_release_notes: true
+        draft: false
+        prerelease: false
+
+    - name: Upload to GitHub Packages
+      uses: actions/upload-package-artifacts@v1
+      with:
+        name: openwrt-bpi-r4-8gb
+        path: bin/targets/mediatek/filogic/*.bin
+        retention-days: 30
