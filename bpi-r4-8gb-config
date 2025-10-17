@@ -16,3 +16,7 @@ CONFIG_PACKAGE_hostapd=y
 CONFIG_PACKAGE_wpad-basic-mbedtls=y
 CONFIG_PACKAGE_iw=y
 CONFIG_PACKAGE_wireless-tools=y
+
+# 8GB RAM specific configuration
+CONFIG_KERNEL_MEMORY_8GB=y
+CONFIG_TARGET_OPTIMIZATION_FOR_8GB=y

@@ -61,6 +61,10 @@ jobs:
         
         # Apply configuration
         make defconfig
+        
+        # Enable 8GB RAM support in kernel config
+        echo "CONFIG_ARM64_VA_BITS_48=y" >> .config
+        echo "CONFIG_ARM64_PA_BITS_48=y" >> .config
 
     - name: Build OpenWrt
       run: |
