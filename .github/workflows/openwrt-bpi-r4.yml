@@ -83,8 +83,8 @@ jobs:
         prerelease: false
 
     - name: Upload to GitHub Packages
-      uses: actions/upload-package-artifacts@v1
+      uses: actions/upload-artifact@v4
       with:
-        name: openwrt-bpi-r4-8gb
+        name: openwrt-bpi-r4-8gb-packages
         path: bin/targets/mediatek/filogic/*.bin
         retention-days: 30
